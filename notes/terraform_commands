@@ -1,0 +1,31 @@
+Initialize Terraform
+    command:terraform init
+    Purpose:Initializes Terraform working directory
+
+2.Validate Configuration
+    command:terraform validate
+    Purpose:Checks Terraform syntax and configuration validity
+
+3.Format Terraform Files
+    command:terraform fmt
+    Purpose:Formats Terraform code properly
+
+4.Generate Execution Plan
+    command:terraform plan
+    Purpose:Shows infrastructure changes before applying
+
+5.Apply Infrastructure
+    commandterraform apply
+    Purpose:Creates or updates infrastructure resources
+
+6.Destroy Infrastructure
+    command:terraform destroy
+    Purpose:Deletes infrastructure managed by Terraform
+
+7.Show Terraform State
+    command:terraform show
+    Purpose:Displays Terraform state information
+
+8.List Terraform Resources
+    command:terraform state list
+    Purpose:Shows resources managed by Terraform
