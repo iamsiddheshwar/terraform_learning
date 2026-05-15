@@ -1,4 +1,4 @@
-Initialize Terraform
+1.Initialize Terraform
     command:terraform init
     Purpose:Initializes Terraform working directory
 
