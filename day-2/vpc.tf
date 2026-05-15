@@ -1,5 +1,5 @@
 #create vpc
-resource "aws_vpc" "my-vpc" {
+resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/24"
 
   tags = {
@@ -9,39 +9,39 @@ resource "aws_vpc" "my-vpc" {
 }
 
 #create subnet 
-resource "aws_subnet" "dev-sub" {
-  vpc_id            = aws_vpc.my-vpc.id
+resource "aws_subnet" "dev_sub" {
+  vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "10.0.0.0/25"
   availability_zone = "ap-south-1a"
 
 }
 
 #create internet gateway
-resource "aws_internet_gateway" "dev-ig" {
-  vpc_id = aws_vpc.my-vpc.id
+resource "aws_internet_gateway" "dev_ig" {
+  vpc_id = aws_vpc.my_vpc.id
 
 }
 #create route table and create route in route table for internet access
-resource "aws_route_table" "dev-rt" {
-  vpc_id = aws_vpc.my-vpc.id
+resource "aws_route_table" "dev_rt" {
+  vpc_id = aws_vpc.my_vpc.id
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.dev-ig.id
+    gateway_id = aws_internet_gateway.dev_ig.id
 
   }
 
 }
 #associate route table with subnet
 resource "aws_route_table_association" "dev" {
-  subnet_id      = aws_subnet.dev-sub.id
-  route_table_id = aws_route_table.dev-rt.id
+  subnet_id      = aws_subnet.dev_sub.id
+  route_table_id = aws_route_table.dev_rt.id
 
 }
 #create security group in vpc with port 80,22 as inbound rule
-resource "aws_security_group" "dev-sg" {
+resource "aws_security_group" "dev_sg" {
   name        = "allow tls"
   description = "allow TLS inbound traffic"
-  vpc_id      = aws_vpc.my-vpc.id
+  vpc_id      = aws_vpc.my_vpc.id
 
   ingress {
     description = "TLS from vpc"
